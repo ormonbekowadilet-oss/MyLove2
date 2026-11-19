@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для Мадины ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #090516;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+#universe {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    animation: shine 3s infinite alternate;
+}
+
+@keyframes shine {
+    from { opacity: .15; transform: scale(.7); }
+    to { opacity: 1; transform: scale(1.5); }
+}
+
+.glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .25;
+    pointer-events: none;
+}
+
+.glow.one {
+    background: #ff168e;
+    top: -100px;
+    left: -100px;
+}
+
+.glow.two {
+    background: #853cff;
+    bottom: -100px;
+    right: -100px;
+}
+
+main {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 16px;
+}
+
+.card {
+    width: 100%;
+    max-width: 460px;
+    text-align: center;
+    padding: 35px 23px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 30px;
+    background: rgba(255,255,255,.055);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 60px rgba(255,40,140,.12);
+    animation: enter 1.5s ease;
+}
+
+@keyframes enter {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.heart {
+    font-size: 76px;
+    display: inline-block;
+    filter: drop-shadow(0 0 20px #ff318c);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+h1 {
+    font-size: clamp(32px, 9vw, 43px);
+    margin: 15px 0;
+    background: linear-gradient(90deg,#ff76c6,#fff,#bd91ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.subtitle {
+    color: #d9c2e9;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.divider {
+    width: 75px;
+    height: 2px;
+    margin: 25px auto;
+    background: linear-gradient(90deg,#ff49a8,#a66bff);
+    box-shadow: 0 0 15px #ff49a8;
+}
+
+.envelope {
+    margin: 30px auto 15px;
+    font-size: 85px;
+    cursor: pointer;
+    display: inline-block;
+    transition: .4s;
+    filter: drop-shadow(0 0 15px #ff4d9d);
+}
+
+.envelope:active {
+    transform: scale(.85);
+}
+
+button {
+    border: 0;
+    border-radius: 40px;
+    padding: 15px 28px;
+    margin-top: 15px;
+    background: linear-gradient(110deg,#ff318b,#984bff);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(255,50,150,.35);
+    transition: .3s;
+}
+
+button:active {
+    transform: scale(.94);
+}
+
+.letter {
+    display: none;
+    margin-top: 25px;
+    padding: 23px 17px;
+    border: 1px solid rgba(255,140,210,.25);
+    background: rgba(255,90,170,.07);
+    border-radius: 22px;
+    line-height: 2;
+    color: #ffe3f4;
+    animation: enter 1s ease;
+}
+
+.letter h2 {
+    color: #ff9bd1;
+    margin-bottom: 18px;
+    font-size: 22px;
+}
+
+#typed {
+    white-space: pre-line;
+    min-height: 100px;
+    font-size: 15px;
+}
+
+.signature {
+    margin-top: 22px;
+    color: #ff9bd1;
+    font-size: 19px;
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #b9a0c8;
+}
+
+.floating {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    z-index: 4;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0); opacity: 0; }
+    15% { opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+.tap-heart {
+    position: fixed;
+    z-index: 10;
+    pointer-events: none;
+    font-size: 25px;
+    animation: tap 1.2s forwards;
+}
+
+@keyframes tap {
+    to {
+        transform: translateY(-100px) scale(1.7);
+        opacity: 0;
+    }
+}
+
+.small-note {
+    color: #d7b6e9;
+    font-size: 13px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="universe"></div>
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+<main>
+<div class="card">
+
+    <div class="heart">❤️</div>
+
+    <h1>Мадина</h1>
+
+    <p class="subtitle">
+        Для самого дорогого человека.<br>
+        У меня есть кое-что для тебя...
+    </p>
+
+    <div class="divider"></div>
+
+    <p style="color:#f4d5ed">
+        Иногда даже тысячи слов<br>
+        не могут описать то, что чувствуешь.
+    </p>
+
+    <div class="envelope" id="envelope" onclick="openLetter()">
+        💌
+    </div>
+
+    <p class="small-note" id="hint">
+        Нажми на конверт, чтобы открыть письмо
+    </p>
+
+    <button id="openBtn" onclick="openLetter()">
+        Открыть моё письмо ❤️
+    </button>
+
+    <div class="letter" id="letter">
+        <h2>Моя дорогая Мадина 💗</h2>
+
+        <p id="typed"></p>
+
+        <div class="signature" id="signature"></div>
+    </div>
+
+    <div class="footer">
+        Сделано с любовью специально для тебя ✨
+    </div>
+
+</div>
+</main>
+
+<script>
+
+// Создание звёзд
+const universe = document.getElementById("universe");
+
+for(let i = 0; i < 120; i++) {
+    let star = document.createElement("div");
+    star.className = "star";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 4 + "s";
+
+    universe.appendChild(star);
+}
+
+// Парящие элементы
+const symbols = ["❤️","💕","💗","✨","🌸","💜"];
+
+function floatingElement() {
+    let item = document.createElement("div");
+    item.className = "floating";
+
+    item.innerText =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    item.style.left = Math.random() * 100 + "vw";
+    item.style.fontSize = (15 + Math.random() * 22) + "px";
+    item.style.animationDuration = (6 + Math.random() * 5) + "s";
+
+    document.body.appendChild(item);
+
+    setTimeout(() => item.remove(), 11000);
+}
+
+setInterval(floatingElement, 500);
+
+// Письмо
+const message = `Ты самое лучшее, что я встретил в своей жизни.
+
+Я тобою очень сильно дорожу и не хочу терять.
+
+Я тебя очень-очень сильно люблю 💋😘
+
+Ты делаешь мои дни ярче, а мир — прекраснее.
+
+Спасибо тебе за каждый момент.
+Я очень счастлив, что ты есть в моей жизни. ❤️`;
+
+let opened = false;
+
+function openLetter() {
+
+    if(opened) return;
+    opened = true;
+
+    document.getElementById("letter").style.display = "block";
+    document.getElementById("envelope").innerText = "💝";
+    document.getElementById("hint").innerText = "Моё послание для тебя ❤️";
+    document.getElementById("openBtn").style.display = "none";
+
+    let index = 0;
+    let output = document.getElementById("typed");
+
+    function type() {
+        if(index < message.length) {
+            output.textContent += message[index];
+            index++;
+
+            let delay = message[index - 1] === "\n" ? 350 : 45;
+            setTimeout(type, delay);
+        } else {
+            document.getElementById("signature").innerText =
+                "Всегда с теплом в сердце ❤️";
+        }
+    }
+
+    type();
+
+    // Праздничные сердечки
+    for(let i = 0; i < 45; i++) {
+        setTimeout(() => floatingElement(), i * 40);
+    }
+
+    document.getElementById("letter").scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
+}
+
+// Сердечки при касании экрана
+document.addEventListener("pointerdown", function(e) {
+
+    let heart = document.createElement("div");
+    heart.className = "tap-heart";
+    heart.innerText = "💗";
+
+    heart.style.left = e.clientX + "px";
+    heart.style.top = e.clientY + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 1300);
+});
+
+</script>
+</body>
+</html>
